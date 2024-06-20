@@ -36,6 +36,9 @@ public class DeltagerController {
     public Deltager updateDeltager(@PathVariable int id, @RequestBody DeltagerDto deltagerDto) {
         return deltagerService.update(id, deltagerDto);
     }
-
+    @DeleteMapping("/{id}")
+    public void deleteDeltager(@PathVariable int id) {
+        deltagerService.deleteById(id);
+    }
 
 }
