@@ -19,4 +19,19 @@ public class DisciplinService {
         return disciplinRepository.findAll();
     }
 
+    public Disciplin save(Disciplin disciplin) {
+        return disciplinRepository.save(disciplin);
+    }
+
+    public Disciplin update(int id, Disciplin disciplin) {
+        if (disciplinRepository.existsById(id)) {
+            disciplin.setId(id);
+            return disciplinRepository.save(disciplin);
+        }
+        return null;
+    }
+
+    public void deleteById(int id) {
+        disciplinRepository.deleteById(id);
+    }
 }

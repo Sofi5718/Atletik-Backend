@@ -25,6 +25,7 @@ public class Deltager {
     private String køn;
     private String klub;
 
+
     @ManyToMany
     @JsonManagedReference
     private List<Disciplin> discipliner = new ArrayList<>();
