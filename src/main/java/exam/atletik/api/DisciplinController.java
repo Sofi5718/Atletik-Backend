@@ -1,5 +1,6 @@
 package exam.atletik.api;
 
+import exam.atletik.dto.DisciplinDto;
 import exam.atletik.entity.Disciplin;
 import exam.atletik.service.DisciplinService;
 import org.springframework.web.bind.annotation.*;
@@ -21,13 +22,13 @@ public class DisciplinController {
     }
 
     @PostMapping
-    public Disciplin createDisciplin(Disciplin disciplin) {
-        return disciplinService.save(disciplin);
+    public Disciplin createDisciplin(DisciplinDto disciplinDto) {
+        return disciplinService.save(disciplinDto);
     }
 
     @PutMapping("/{id}")
-    public Disciplin updateDisciplin(@PathVariable int id, @RequestBody Disciplin disciplin) {
-        return disciplinService.update(id, disciplin);
+    public Disciplin updateDisciplin(@PathVariable int id, @RequestBody DisciplinDto disciplinDto) {
+        return disciplinService.update(id, disciplinDto);
     }
 
     @DeleteMapping("/{id}")

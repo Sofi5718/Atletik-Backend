@@ -1,8 +1,12 @@
 package exam.atletik.api;
 
+import exam.atletik.entity.Disciplin;
 import exam.atletik.entity.Resultat;
 import exam.atletik.service.ResultatService;
+import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/resultater")
@@ -12,6 +16,11 @@ public class ResultatController {
 
     public ResultatController(ResultatService resultatService) {
         this.resultatService = resultatService;
+    }
+
+    @GetMapping
+    public List<Resultat> getAllResultater() {
+        return resultatService.getAllResultater();
     }
 
     @PostMapping
@@ -28,6 +37,7 @@ public class ResultatController {
     public void deleteResultat(@PathVariable int id) {
         resultatService.deleteById(id);
     }
+
 
 
 

@@ -1,8 +1,11 @@
 package exam.atletik.service;
 
+import exam.atletik.dto.ResultatDto;
 import exam.atletik.entity.Resultat;
 import exam.atletik.repository.ResultatRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ResultatService {
@@ -27,5 +30,9 @@ public class ResultatService {
 
     public void deleteById(int id) {
         resultatRepository.deleteById(id);
+    }
+
+    public List<Resultat> getAllResultater() {
+        return resultatRepository.findAll();
     }
 }
