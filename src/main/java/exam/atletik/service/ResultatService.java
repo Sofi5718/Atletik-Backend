@@ -6,6 +6,7 @@ import exam.atletik.repository.ResultatRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ResultatService {
@@ -32,7 +33,23 @@ public class ResultatService {
         resultatRepository.deleteById(id);
     }
 
-    public List<Resultat> getAllResultater() {
-        return resultatRepository.findAll();
+    public List<ResultatDto> getAllResultater() {
+      List<Resultat>allResultater = resultatRepository.findAll();
+        return convertToResultat(allResultater);
+
+    }
+    private List<ResultatDto> convertToResultat(List<Resultat> resultater){
+        return resultater.stream()
+                .map(resultat -> {
+                    ResultatDto resultatDto = new ResultatDto();
+                    resultatDto.setId(resultat.getId());
+                    resultatDto.setDeltagerId(resultat.getDeltager().getId());
+                    resultatDto.setDisciplinId(resultat.getDisciplin().getId());
+                    resultatDto.setDato(resultat.getDato());
+
+                    resultatDto.setResultat(resultat.getResultat());
+                    return resultatDto;
+                })
+                .collect(Collectors.toList());
     }
 }

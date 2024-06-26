@@ -1,5 +1,6 @@
 package exam.atletik.api;
 
+import exam.atletik.dto.ResultatDto;
 import exam.atletik.entity.Disciplin;
 import exam.atletik.entity.Resultat;
 import exam.atletik.service.ResultatService;
@@ -19,7 +20,7 @@ public class ResultatController {
     }
 
     @GetMapping
-    public List<Resultat> getAllResultater() {
+    public List<ResultatDto> getAllResultater() {
         return resultatService.getAllResultater();
     }
 

@@ -30,7 +30,8 @@ public class Deltager {
     @JsonManagedReference
     private List<Disciplin> discipliner = new ArrayList<>();
 
-    @OneToMany(mappedBy = "deltager")
+    // tilføjet cascade = CascadeType.REMOVE for at sikre den fjerner resultater fra deltager der bliver slettet.
+    @OneToMany(mappedBy = "deltager", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private List<Resultat> resultater = new ArrayList<>();
 }

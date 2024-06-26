@@ -156,6 +156,7 @@ public class AtletikApplication {
             resultat1.setDisciplin(disciplin2);
             resultat1.setDato(java.time.LocalDateTime.now());
             resultat1.setResultat(6.5);
+
             resultatRepository.save(resultat1);
 
             Resultat resultat2 = new Resultat();

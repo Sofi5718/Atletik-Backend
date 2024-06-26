@@ -26,8 +26,8 @@ public class Disciplin {
     @ManyToMany(mappedBy = "discipliner")
     @JsonBackReference
     private List<Deltager> deltagere = new ArrayList<>();
-
-    @OneToMany(mappedBy = "disciplin")
+// tilføjet cascade = CascadeType.REMOVE for at sikre den fjerner resultater fra disciplin der bliver slettet.
+    @OneToMany(mappedBy = "disciplin", cascade = CascadeType.REMOVE)
     @JsonBackReference
     private List<Resultat> resultater = new ArrayList<>();
 

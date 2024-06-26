@@ -21,8 +21,9 @@ public class DisciplinController {
         return disciplinService.getAllDiscipliner();
     }
 
+    // manglede en @requestbody for at den virkede opret / update
     @PostMapping
-    public Disciplin createDisciplin(DisciplinDto disciplinDto) {
+    public Disciplin createDisciplin(@RequestBody DisciplinDto disciplinDto) {
         return disciplinService.save(disciplinDto);
     }
 
@@ -33,6 +34,6 @@ public class DisciplinController {
 
     @DeleteMapping("/{id}")
     public void deleteDisciplin(@PathVariable int id) {
-        disciplinService.deleteById(id);
+        disciplinService.deleteDisciplin(id);
     }
 }

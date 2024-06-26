@@ -22,6 +22,7 @@ public class Resultat {
    private int id;
     private LocalDateTime dato;
     private double resultat;
+
     @ManyToOne
     @JsonBackReference
     private Deltager deltager;

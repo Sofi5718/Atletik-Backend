@@ -4,13 +4,15 @@ package exam.atletik.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 public class ResultatDto {
-    private DeltagerDto deltager;
-    private DisciplinDto disciplin;
-    private String resultat;
-    private String enhed;
-    private String dato;
+    private int id;
+    private int deltagerId;
+    private int disciplinId;
+    private double resultat;
+    private LocalDateTime dato;
 
 }
